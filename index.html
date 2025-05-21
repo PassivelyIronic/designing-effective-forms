@@ -1,129 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" defer></script>
-
     <title>Efektywne formularze</title>
 </head>
-
 <body>
     <div class="container">
-        <h1>Uzupełnij formularz</h1>
-        <form id="form">
-            <div class="mb-3">
-                <label for="firstName" class="form-label">Imię</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Wpisz imię" required>
-            </div>
-            <div class="mb-3">
-                <label for="lastName" class="form-label">Nazwisko</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Wpisz nazwisko" required>
-            </div>
-            <div class="mb-3">
-                <label for="street" class="form-label">Ulica</label>
-                <input type="text" class="form-control" id="street" placeholder="Wpisz ulicę" required>
-            </div>
-            <div class="mb-3">
-                <label for="country" class="form-label">Kraj</label>
-                <select class="form-select" id="country" required>
-                    <option value="">Wybierz kraj</option>
-                    <!-- Options will be filled by JavaScript -->
-                </select>
-            </div>
-            <div class="row mb-3">
-                <label for="phoneNumber" class="form-label">Numer telefonu komórkowego</label>
-                <div class="input-group">
-                    <select class="form-select" id="countryCode" aria-label="Wybierz numer kierunkowy">
-                        <option selected>Wybierz...</option>
-                        <option value="+48">+48 (Polska)</option>
-                        <option value="+1">+1 (Stany Zjednoczone)</option>
-                        <!-- Dodaj więcej opcji, jeśli jest to potrzebne -->
-                    </select>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="Wpisz numer komórkowy"
-                        required>
+        <h1 class="text-center mb-4">
+            <i class="fas fa-edit me-2"></i>
+            Uzupełnij formularz
+        </h1>
+        
+        <form id="form" novalidate>
+            <!-- Dane osobowe -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    Dane osobowe
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName" class="form-label required">Imię</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="firstName" required
+                                   aria-describedby="firstNameHelp">
+                        </div>
+                        <div class="form-text" id="firstNameHelp">Podaj swoje imię</div>
+                        <div class="invalid-feedback">Proszę podać imię</div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName" class="form-label required">Nazwisko</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="lastName" required
+                                   aria-describedby="lastNameHelp">
+                        </div>
+                        <div class="form-text" id="lastNameHelp">Podaj swoje nazwisko</div>
+                        <div class="invalid-feedback">Proszę podać nazwisko</div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label required">Adres email</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" id="exampleInputEmail1" required
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-text" id="emailHelp">Format: nazwa@domena.com</div>
+                    <div class="invalid-feedback">Proszę podać prawidłowy adres email</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label required">Numer telefonu</label>
+                    <div class="input-group">
+                        <select class="form-select" id="countryCode" style="max-width: 140px;" required>
+                            <option value="">Kod...</option>
+                            <option value="+48">🇵🇱 +48</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+49">🇩🇪 +49</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+44">🇬🇧 +44</option>
+                        </select>
+                        <input type="tel" class="form-control" id="phoneNumber" required
+                               pattern="[0-9\s\-]{9,15}" aria-describedby="phoneHelp">
+                    </div>
+                    <div class="form-text" id="phoneHelp">Format: 123 456 789</div>
+                    <div class="invalid-feedback">Proszę podać prawidłowy numer telefonu</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label required">Hasło</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="exampleInputPassword1" required
+                               aria-describedby="passwordHelp">
+                    </div>
+                    <div class="form-text" id="passwordHelp">Minimum 8 znaków</div>
+                    <div class="invalid-feedback">Proszę podać hasło (minimum 8 znaków)</div>
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="city" class="form-label">Miasto</label>
-                <input type="text" class="form-control" id="city" placeholder="Wpisz miasto" required>
+            
+            <!-- Adres dostawy -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Adres dostawy
+                </div>
+                
+                <div class="mb-3">
+                    <label for="country" class="form-label required">Kraj</label>
+                    <div class="country-search">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                            <input type="text" class="form-control" id="countrySearch" 
+                                   placeholder="Wpisz nazwę kraju..." aria-describedby="countryHelp">
+                        </div>
+                        <div class="country-suggestions" id="countrySuggestions"></div>
+                        <input type="hidden" id="country" required>
+                    </div>
+                    <div class="form-text" id="countryHelp">
+                        Zacznij pisać nazwę kraju <span class="keyboard-hint">(Ctrl+K aby przeszukać)</span>
+                    </div>
+                    <div class="invalid-feedback">Proszę wybrać kraj</div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="street" class="form-label required">Ulica i numer</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-road"></i></span>
+                            <input type="text" class="form-control" id="street" required
+                                   aria-describedby="streetHelp">
+                        </div>
+                        <div class="form-text" id="streetHelp">np. ul. Główna 15/3</div>
+                        <div class="invalid-feedback">Proszę podać adres</div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-3">
+                        <label for="zipCode" class="form-label required">Kod pocztowy</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
+                            <input type="text" class="form-control" id="zipCode" required
+                                   pattern="[0-9]{2}-[0-9]{3}" aria-describedby="zipHelp">
+                        </div>
+                        <div class="form-text" id="zipHelp">Format: 00-000</div>
+                        <div class="invalid-feedback">Format: XX-XXX</div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="city" class="form-label required">Miasto</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-city"></i></span>
+                        <input type="text" class="form-control" id="city" required
+                               aria-describedby="cityHelp">
+                    </div>
+                    <div class="form-text" id="cityHelp">Nazwa miejscowości</div>
+                    <div class="invalid-feedback">Proszę podać miasto</div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="zipCode" class="form-label">Kod pocztowy</label>
-                <input type="text" class="form-control" id="zipCode" placeholder="Wpisz kod pocztowy" required>
+            
+            <!-- Opcje dostawy i płatności -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-shipping-fast"></i>
+                    Dostawa i płatność
+                </div>
+                
+                <div class="mb-4">
+                    <label class="form-label required">Sposób dostawy</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <label class="radio-card">
+                                <input type="radio" name="shippingMethod" value="DPD" required>
+                                <div>
+                                    <i class="fas fa-truck radio-icon"></i>
+                                    <strong>DPD</strong>
+                                    <div class="form-text">Dostawa kurierska</div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="radio-option">
+                            <label class="radio-card">
+                                <input type="radio" name="shippingMethod" value="InPost" required>
+                                <div>
+                                    <i class="fas fa-box radio-icon"></i>
+                                    <strong>InPost</strong>
+                                    <div class="form-text">Paczkomat 24/7</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">Proszę wybrać sposób dostawy</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label required">Sposób płatności</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="karta" required>
+                                <div>
+                                    <i class="fas fa-credit-card radio-icon"></i>
+                                    <strong>Karta</strong>
+                                    <div class="form-text">Visa, Mastercard</div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="radio-option">
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="blik" required>
+                                <div>
+                                    <i class="fas fa-mobile-alt radio-icon"></i>
+                                    <strong>BLIK</strong>
+                                    <div class="form-text">Kod z aplikacji</div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="radio-option">
+                            <label class="radio-card">
+                                <input type="radio" name="paymentMethod" value="posrednik" required>
+                                <div>
+                                    <i class="fas fa-university radio-icon"></i>
+                                    <strong>Przelewy24</strong>
+                                    <div class="form-text">Płatność online</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">Proszę wybrać sposób płatności</div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="shippingMethod" class="form-label">Rodzaj przesyłki</label>
-                <select class="form-select" id="shippingMethod" required>
-                    <option value="">Wybierz rodzaj przesyłki</option>
-                    <option value="DPD">DPD</option>
-                    <option value="InPost">InPost</option>
-                </select>
+            
+            <!-- Dane do faktury (opcjonalne) -->
+            <div class="form-section">
+                <div class="section-title">
+                    <i class="fas fa-file-invoice"></i>
+                    Dane do faktury (opcjonalne)
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="vatUE">
+                    <label class="form-check-label" for="vatUE">
+                        <strong>Firma z UE z numerem VAT</strong>
+                    </label>
+                </div>
+                
+                <div class="mb-3" id="vatNumberGroup" style="display: none;">
+                    <label for="vatNumber" class="form-label">Numer VAT UE</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                        <input type="text" class="form-control" id="vatNumber" 
+                               pattern="[A-Z]{2}[0-9A-Z]{8,12}" aria-describedby="vatHelp">
+                    </div>
+                    <div class="form-text" id="vatHelp">
+                        Format: kod kraju + cyfry (np. PL1234567890)
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="invoiceData" class="form-label">Dodatkowe dane do faktury</label>
+                    <textarea class="form-control" id="invoiceData" rows="3" 
+                              placeholder="Nazwa firmy, NIP, adres..." aria-describedby="invoiceHelp"></textarea>
+                    <div class="form-text" id="invoiceHelp">
+                        Opcjonalnie: nazwa firmy, NIP, adres do faktury jeśli inny niż adres dostawy
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="paymentMethod" class="form-label">Rodzaj płatności</label>
-                <select class="form-select" id="paymentMethod" required>
-                    <option value="">Wybierz rodzaj płatności</option>
-                    <option value="karta">Karta</option>
-                    <option value="blik">BLIK</option>
-                    <option value="pośrednik">Pośrednik płatności</option>
-                </select>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-paper-plane me-2"></i>
+                    Złóż zamówienie
+                    <span class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+                <div class="form-text keyboard-hint mt-2">
+                    Naciśnij Enter aby wysłać formularz
+                </div>
             </div>
-
-            <!-- Dodatkowe pola, np. dane do faktury -->
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="vatUE">
-                <label class="form-check-label" for="vatUE">VAT UE</label>
-            </div>
-            <div class="mb-3">
-                <label for="vatNumber" class="form-label">VAT Number</label>
-                <input type="text" class="form-control" id="vatNumber" aria-describedby="vatHelp">
-                <div id="vatHelp" class="form-text">Kod kraju państwa członkowskiego i seria cyfr unikalnych dla tego
-                    podmiotu gospodarczego.</div>
-            </div>
-
-            <div class="mb-3">
-                <label for="invoiceData" class="form-label">Dane do faktury</label>
-                <textarea class="form-control" id="invoiceData" rows="3" placeholder="Wpisz dane do faktury"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#form-feedback-modal">submit</button>
         </form>
     </div>
-
-
-    <!-- Raport kliknięć -->
-    <div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel"
-        aria-hidden="true">
+    
+    <!-- Toast powiadomienia -->
+    <div class="toast-container"></div>
+    
+    <!-- Modal raportu kliknięć -->
+    <div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="raportModalLabel">Raport kliknięć</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="raportModalLabel">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        Raport aktywności
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Ilość kliknięć myszką: <span id="click-count">0</span></p>
+                    <p><i class="fas fa-mouse-pointer me-2"></i>Ilość kliknięć: <strong><span id="click-count">0</span></strong></p>
+                    <p><i class="fas fa-keyboard me-2"></i>Naciśnięcia klawiszy: <strong><span id="key-count">0</span></strong></p>
+                    <p><i class="fas fa-clock me-2"></i>Czas wypełniania: <strong><span id="time-spent">0</span>s</strong></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>
