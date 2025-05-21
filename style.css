@@ -1,4 +1,7 @@
-/* Podstawowe style dla body i kontenera */
+.modal {
+    background: #c6d0ff7a;
+}
+
 body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
@@ -14,7 +17,6 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* Grupowanie powiązanych pól */
 .form-section {
     margin-bottom: 2rem;
     padding: 1.5rem;
@@ -33,7 +35,6 @@ body {
     gap: 0.5rem;
 }
 
-/* Etykiety */
 .form-label {
     font-weight: 600;
     color: #374151;
@@ -45,7 +46,6 @@ body {
     color: #ef4444;
 }
 
-/* Inteligentne podpowiedzi dla kraju */
 .country-search {
     position: relative;
 }
@@ -74,7 +74,6 @@ body {
     background: #f3f4f6;
 }
 
-/* Radio buttons zamiast małych selectów */
 .radio-group {
     display: flex;
     flex-wrap: wrap;
@@ -118,7 +117,11 @@ body {
     font-size: 1.2rem;
 }
 
-/* Style dla przycisków i focusu */
+.input-group-text {
+    background: #f8faff;
+    border-color: #d1d5db;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, #6366f1, #8b5cf6);
     border: none;
@@ -138,7 +141,6 @@ body {
     box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
 }
 
-/* Walidacja */
 .invalid-feedback {
     display: block;
 }
@@ -147,13 +149,23 @@ body {
     border-color: #ef4444;
 }
 
-/* Auto-wypełnianie przez IP */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    display: none;
+    margin-left: 0.5rem;
+}
+
 .auto-filled {
     background: #f0fdf4;
     border-color: #22c55e;
 }
 
-/* Responsywność dla jednej kolumny w viewporcie */
 @media (max-height: 800px) {
     .container {
         margin: 1rem auto;
@@ -166,14 +178,12 @@ body {
     }
 }
 
-/* Pomocne informacje o formatach */
 .form-text {
     font-size: 0.875rem;
     color: #6b7280;
     margin-top: 0.25rem;
 }
 
-/* Podpowiedzi o skrótach klawiaturowych */
 .keyboard-hint {
     font-size: 0.75rem;
     color: #9ca3af;
