@@ -3,18 +3,19 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-analytics.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
+// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBC7cl__uRdWHRha6vZcQY6ebA9G9h7bu0",
-    authDomain: "tpf-pk-28c84.firebaseapp.com",
-    projectId: "tpf-pk-28c84",
-    storageBucket: "tpf-pk-28c84.firebasestorage.app",
-    messagingSenderId: "708907313295",
-    appId: "1:708907313295:web:70bccbfffa8c25f309e8fa",
-    measurementId: "G-QSPGQT90PH"
+  apiKey: "AIzaSyCnPX4hs3_hkCMpbv7Bkb8atE0ogFJV7pE",
+  authDomain: "designing-effective-form-3bc8e.firebaseapp.com",
+  projectId: "designing-effective-form-3bc8e",
+  storageBucket: "designing-effective-form-3bc8e.firebasestorage.app",
+  messagingSenderId: "579809976318",
+  appId: "1:579809976318:web:2dbbaa07d525ea97b76aaf",
+  measurementId: "G-XHPRGE4FEF"
 };
 
 // Initialize Firebase
